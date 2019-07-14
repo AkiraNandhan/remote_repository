@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Retrieve Page</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    th,td{
+        padding: 10px 20px;
+        text-align: center;
+        color: red;
+    }
+    tbody:nth-of-type(even){
+        background-color: orange;
+    }
+     tbody:nth-of-type(odd){
+        background-color: white;
+    }
+    #h22{
+        color: red;
+        font-size: 100px;
+    }
+    body{
+        background-color: cyan;
+    }
+</style>
+<body>
+{% if pdata %}
+    <center>
+    <h1 id="h22">Products Data</h1>
+    <table border="2px">
+    <thead>
+    <tr>
+        <td>product id</td>
+        <td>product Name</td>
+        <td>product cost</td>
+        <td>product color</td>
+        <td>product class</td>
+        <td>customer Name</td>
+        <td>customer mobile</td>
+        <td>customer Email</td>
+    </tr>
+    </thead>
+    {% for i in pdata %}
+        <tbody>
+        <tr>
+            <td>{{ i.product_id }}</td>
+            <td>{{ i.product_name }}</td>
+            <td>{{ i.product_cost }}</td>
+            <td>{{ i.product_color }}</td>
+            <td>{{ i.product_class }}</td>
+            <td>{{ i.customer_name }}</td>
+            <td>{{ i.customer_mobile }}</td>
+            <td>{{ i.customer_email }}</td>
+        </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+    <a href="/#/">Go To Main Page</a>
+    </center>
+{% else %}
+    <h1>Product Data Is Not Available</h1>
+{% endif %}
+</body>
+</html>
